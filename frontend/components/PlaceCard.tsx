@@ -1,21 +1,29 @@
+import { Place } from "../types/place";
+
 type PlaceCardProps = {
-  name: string;
-  category: string;
-  rating: number;
+  place: Place;
 };
 
-export default function PlaceCard({
-  name,
-  category,
-  rating,
-}: PlaceCardProps) {
+export default function PlaceCard({ place }: PlaceCardProps) {
   return (
-    <div className="border rounded-xl p-5">
-      <h3 className="text-xl font-semibold">{name}</h3>
+    <div className="border rounded-xl p-5 hover:shadow-lg transition">
 
-      <p className="text-gray-600">{category}</p>
+      <h3 className="text-xl font-semibold">
+        {place.name}
+      </h3>
 
-      <p className="mt-2">⭐ {rating}</p>
+      <p className="text-gray-500">
+        {place.category}
+      </p>
+
+      <p className="mt-2">
+        ⭐ {place.rating}
+      </p>
+
+      <p className="text-sm text-gray-500 mt-2">
+        📍 {place.city}
+      </p>
+
     </div>
   );
 }
